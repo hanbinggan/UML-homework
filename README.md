@@ -7,7 +7,8 @@
 <p>poor english 233333333333333</p>
 <ul>something next to do
   <li>1.add the moudle of add_plan to the project(including join the plan and del)</li>
-  <li>2.add album moudle instead of the img (including the create the database table and jsp)</li>
-  <li>3.change the path of save img</li>
-  <li>4.adjust the css and js make it look not so ugly</li>
+  <li>2.upload the head portrait</li>
+  <li>3.add album moudle instead of the img (including the create the database table and jsp)</li>
+  <li>4.change the path of save img</li>
+  <li>5.adjust the css and js make it look not so ugly</li>
 </ul>
