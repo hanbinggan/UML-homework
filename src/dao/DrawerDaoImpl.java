@@ -103,11 +103,18 @@ public class DrawerDaoImpl implements DrawerDao {
         PreparedStatement pst=null;
         try{
             conn=DbUtils.getConnection();
-            String sql="update drawerApplication set state=? where articleID=? AND drawerID=?";
+            String sql;
+            if("".equals(email)){
+                sql="update drawerApplication set state=? where articleID=?";
+            }else{
+                sql="update drawerApplication set state=? where articleID=? AND drawerID=?";
+            }
             pst=conn.prepareStatement(sql);
-            pst.setInt(1,ed);
+            pst.setInt(1, ed);
             pst.setString(2, aID);
-            pst.setString(3,email);
+            if(!"".equals(email)){
+                pst.setString(3,email);
+            }
             pst.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

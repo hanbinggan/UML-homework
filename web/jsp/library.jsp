@@ -122,6 +122,9 @@
               <p><a href="<%=basePath%>jsp/imageLibrary.jsp?email=<%=draw.getEmail()%>"><%=draw.getEmail()%>
               </a></p>
             </div>
+            <script>
+              alert('<%=imgpath%>');
+            </script>
             <a href="<%=basePath%>jsp/imageLibrary.jsp?email=<%=draw.getEmail()%>" class="image featured">
               <img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/></a>
           </section>

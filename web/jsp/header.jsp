@@ -61,18 +61,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
               <%
                 }else if("planner".equals(id)){%>
               <li><a href="<%=basePath%>jsp/planAdd.jsp">发表策划</a></li>
-              <li><a href="<%=basePath%>jsp/imageLibrary.jsp">修改策划</a></li>
+              <li><a href="<%=basePath%>jsp/myPlan.jsp">我的策划</a> </li>
+              <li><a href="<%=basePath%>jsp/planDel.jsp">修改策划</a></li>
                <% }
               %>
-              <li>
-                <a href="#">ffsf</a>
-                <ul>
-                  <li><a href="#">Lorem ipsum dolor</a></li>
-                  <li><a href="#">Phasellus consequat</a></li>
-                  <li><a href="#">Magna phasellus</a></li>
-                  <li><a href="#">Etiam dolore nisl</a></li>
-                </ul>
-              </li>
             </ul>
           </li>
         </ul>

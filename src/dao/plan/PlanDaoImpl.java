@@ -100,4 +100,79 @@ public class PlanDaoImpl implements PlanDao {
         }
         return planEntities;
     }
+
+    @Override
+    public List<PlanEntity> quercy(String planID) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<PlanEntity> planEntities=new ArrayList<PlanEntity>();
+        try {
+            String sql = "select * from plans where plannerid=?";
+            conn=DbUtils.getConnection();
+            pstmt =conn.prepareStatement(sql);
+            pstmt.setString(1,planID);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                PlanEntity planEntity=new PlanEntity();
+                planEntity.setId(rs.getString("id"));
+                planEntity.setName(rs.getString("name"));
+                planEntity.setPlannerid(rs.getString("plannerid"));
+                planEntity.setTag(rs.getString("tag"));
+                planEntity.setBgdate(rs.getDate("bgdate"));
+                planEntity.setIntro(rs.getString("intro"));
+                planEntities.add(planEntity);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }finally {
+            DbUtils.closeResultSet(rs);
+            DbUtils.closePreparedStatement(pstmt);
+            DbUtils.closeConnection();
+        }
+        return planEntities;
+    }
+
+    @Override
+    public void del(String planid) {
+        Connection conn=null;
+        PreparedStatement pstmt=null;
+        try {
+            conn= DbUtils.getConnection();
+            String sql="DELETE FROM plans WHERE id=?";
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setString(1,planid);
+            pstmt.execute();
+        }  catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally {
+            DbUtils.closePreparedStatement(pstmt);
+            DbUtils.closeConnection();
+        }
+    }
+
+    @Override
+    public void planMudify(PlanEntity planEntity) {
+        Connection conn=null;
+        PreparedStatement pstmt=null;
+        try {
+            conn= DbUtils.getConnection();
+            String sql="UPDATE plans SET name=?,bgdate=?,tag=?,intro=?where id=?";
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setString(1,planEntity.getName());
+            pstmt.setDate(2,planEntity.getBgdate());
+            pstmt.setString(3, planEntity.getTag());
+            pstmt.setString(4, planEntity.getIntro());
+            pstmt.setString(5, planEntity.getId());
+            pstmt.executeUpdate();
+        }  catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally {
+            DbUtils.closePreparedStatement(pstmt);
+            DbUtils.closeConnection();
+        }
+    }
 }
