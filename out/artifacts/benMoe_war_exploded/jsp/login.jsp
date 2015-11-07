@@ -32,21 +32,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
   <link rel="stylesheet" href="<%=basePath%>css/main.css"/>
   <!--[if lte IE 8]>
   <link rel="stylesheet" href="<%=basePath%>css/ie8.css"/><![endif]-->
-  <style>
-    .button1 {
-      background: #cccccc;
-      padding: 5.5px 11px;
-      -webkit-border-radius: 8px;
-      -moz-border-radius: 8px;
-      border-radius: 8px;
-      color: white;
-      font-size: 13px;
-      font-family: Georgia, serif;
-      text-decoration: none;
-      vertical-align: middle;
-    "
-    }
-  </style>
   <script>
     function checkPassword() {
       var fd = new FormData();
@@ -69,7 +54,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
               $("#true").fadeIn(1000);
               $("#true").fadeOut(2000);
               window.location.href =
-                      "<%=basePath%>jsp/<%="drawer".equals((String)request.getSession().getAttribute("id"))?"library.jsp":"planAdd.jsp"%>";
+                      "<%=basePath%>jsp/<%="drawer".equals((String)request.getSession().getAttribute("id"))?"library.jsp":"planShow.jsp"%>";
 
             } else {
               $("#false").fadeIn(1000);

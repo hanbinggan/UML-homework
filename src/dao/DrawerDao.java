@@ -7,6 +7,7 @@ import java.util.List;
  */
 public interface DrawerDao {
     void insert(String dID,String aID);
-    List<DrawerProjects> getState(int state);
-    void changeState(String aID,int ed);
+    List<DrawerProjects> getState(String id,int state);
+    void changeState(String email,String aID,int ed);
+    DrawerProjects quercy(String email,String id);
 }

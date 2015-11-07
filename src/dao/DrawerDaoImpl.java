@@ -11,6 +11,36 @@ import java.util.List;
  */
 public class DrawerDaoImpl implements DrawerDao {
     @Override
+    public DrawerProjects quercy(String email, String id) {
+        DrawerProjects dr=null;
+        Connection conn=null;
+        PreparedStatement pst=null;
+        ResultSet rs=null;
+        try{
+            conn=DbUtils.getConnection();
+            String sql="select * from drawerApplication where drawerID=? AND articleID=?";
+            pst=conn.prepareStatement(sql);
+            pst.setString(1,email);
+            pst.setString(2,id);
+            rs=pst.executeQuery();
+            if (rs.next()){
+                dr=new DrawerProjects();
+                dr.setDrawerID(rs.getString("drawerID"));
+                dr.setArticleID(rs.getString("articleID"));
+                dr.setState(rs.getInt("state"));
+                dr.setTime(rs.getDate("time"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            DbUtils.closeResultSet(rs);
+            DbUtils.closePreparedStatement(pst);
+            DbUtils.closeConnection();
+        }
+        return dr;
+    }
+
+    @Override
     public void insert(String dID, String aID) {
         Connection conn=null;
         PreparedStatement pst=null;
@@ -35,16 +65,18 @@ public class DrawerDaoImpl implements DrawerDao {
     }
 
     @Override
-    public List<DrawerProjects> getState(int state) {
+    public List<DrawerProjects> getState(String id,int state) {
         List<DrawerProjects>list=null;
         Connection conn=null;
         PreparedStatement pst=null;
         ResultSet rs=null;
+        System.out.println(id+state);
         try{
             conn=DbUtils.getConnection();
-            String sql="select * from drawerApplication where state=?";
+            String sql="select * from drawerApplication where state=? and articleID=?";
             pst=conn.prepareStatement(sql);
             pst.setInt(1,state);
+            pst.setString(2,id);
             rs=pst.executeQuery();
             list=new ArrayList<DrawerProjects>();
             while (rs.next()){
@@ -66,15 +98,16 @@ public class DrawerDaoImpl implements DrawerDao {
     }
 
     @Override
-    public void changeState(String aID, int ed) {
+    public void changeState(String email,String aID, int ed) {
         Connection conn=null;
         PreparedStatement pst=null;
         try{
             conn=DbUtils.getConnection();
-            String sql="update drawerApplication set state=? where articleID=?";
+            String sql="update drawerApplication set state=? where articleID=? AND drawerID=?";
             pst=conn.prepareStatement(sql);
             pst.setInt(1,ed);
-            pst.setString(2,aID);
+            pst.setString(2, aID);
+            pst.setString(3,email);
             pst.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

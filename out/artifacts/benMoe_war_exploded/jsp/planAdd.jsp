@@ -38,10 +38,10 @@
         <div class="20u 20u$(medium)">
         </div>
             <form name="planAdd" method="post"  action="../servlet/planAddServlet">
-              <input type="hidden" name="plannerid" value="<%=(String)request.getSession().getAttribute("email")%>">
+              <input type="hidden" name="plannerid" value="<%=(String)request.getSession().getAttribute("email")%>"/>
 
-              <div><label>本子名称</label><input type="text"name="name" style="width: 500px;"></div>
-              <div><label>标签</label><input type="text" name="tag"></div>
+              <div><label>本子名称</label><input type="text"name="name" style="width: 500px;"/></div>
+              <div><label>标签</label><input type="text" name="tag"/></div>
               <div>
                 <label>描叙</label>
                 <textarea name="intro"></textarea>
