@@ -11,7 +11,7 @@ import java.util.List;
 public class DbUtils {
     private static Connection conn=null;
     private static int everyPage = 10;
-    private static String path="E:\\IdeaProjects\\benMoe\\resource";
+    private static String path="E:\\IdeaProjects\\resource";
     public static String getPath(){
         return path;
     }
