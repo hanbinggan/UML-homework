@@ -43,31 +43,71 @@
         <article>拯救吃土画手！策划在行动！</article>
       </div>
     </div>
-    <div id="features-wrapper">
-      <div class="container">
-          <form action="planSearch.jsp" target="_blank">
-              <input type="text" name="key" placeholder="输入本子关键词..." class="text input-xxlarge" data-selector="key"><button type="submit" class="btn btn-xxlarge"><i class="icon-32-nd icon-32-find float-left"></i>搜索</button>
-          </form>
-                <table>
-                <% PlanDao planDao = new PlanDaoImpl();
-                 List<PlanEntity> planEntityList = planDao.planShow();
-                 for(PlanEntity planEntity:planEntityList)
-                 {
-                   %>
-                   <tr><% out.print(planEntity.getId());%></tr>><br>
-                    <tr><% out.print(planEntity.getName());%></tr><br>s
-                    <tr><% out.print(planEntity.getPlannerid());%></tr><br>
-                    <tr><% out.print(planEntity.getBgdate());%></tr><br>
-                    <tr><% out.print(planEntity.getTag());%></tr><br>
-                    <%  }
-
-                %>
-                    <br>
-                </table>
-          </div>
+    <div class="container">
+      <div class="row 200%">
+        <div class="4u 12u$(medium)">
         </div>
+        <%--<div>--%>
+        <%--<form action="planSearch.jsp" target="_blank">--%>
+          <%--<input type="text" name="key" placeholder="输入本子关键词..." class="text input-xxlarge" data-selector="key"><button type="submit" class="btn btn-xxlarge"><i class="icon-32-nd icon-32-find float-left"></i>搜索</button>--%>
+        <%--</form>--%>
+          <%--</div>--%>
+        <table>
+          <thead>
+            <tr>
+              <th>策划</th>
+              <th>题目</th>
+              <th>标签</th>
+              <th>发帖时间</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% PlanDao planDao = new PlanDaoImpl();
+            List<PlanEntity> planEntityList = planDao.planShow();
+            for(PlanEntity planEntity:planEntityList)
+            {
+          %>
+          <tr>
+            <td align="center"><%=planEntity.getPlannerid()%></td>
+            <td align="center">
+              <a href="<%=basePath%>jsp/planRead.jsp?planid=<%=planEntity.getId()%>">
+                <%=planEntity.getName()%>
+              </a>
+            </td>
+            <td align="center"><%=planEntity.getTag()%></td>
+            <td align="center"><%=planEntity.getBgdate()%></td>
+          </tr>
+          <%  }
+
+          %>
+          </tbody>
+        </table>
+
       </div>
     </div>
+    <%--<div id="features-wrapper">--%>
+      <%--<div class="container">--%>
+          <%--<form action="planSearch.jsp" target="_blank">--%>
+              <%--<input type="text" name="key" placeholder="输入本子关键词..." class="text input-xxlarge" data-selector="key"><button type="submit" class="btn btn-xxlarge"><i class="icon-32-nd icon-32-find float-left"></i>搜索</button>--%>
+          <%--</form>--%>
+                <%--&lt;%&ndash;<table>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<% PlanDao planDao = new PlanDaoImpl();&ndash;%&gt;--%>
+                 <%--&lt;%&ndash;List<PlanEntity> planEntityList = planDao.planShow();&ndash;%&gt;--%>
+                 <%--&lt;%&ndash;for(PlanEntity planEntity:planEntityList)&ndash;%&gt;--%>
+                 <%--&lt;%&ndash;{&ndash;%&gt;--%>
+                   <%--&lt;%&ndash;%>&ndash;%&gt;--%>
+                   <%--&lt;%&ndash;<tr><% out.print(planEntity.getId());%></tr>><br>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<tr><% out.print(planEntity.getName());%></tr><br>s&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<tr><% out.print(planEntity.getPlannerid());%></tr><br>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<tr><% out.print(planEntity.getBgdate());%></tr><br>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<tr><% out.print(planEntity.getTag());%></tr><br>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<%  }&ndash;%&gt;--%>
+
+                <%--&lt;%&ndash;%>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<br>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;</table>&ndash;%&gt;--%>
+          <%--</div>--%>
+        <%--</div>--%>
   </div>
 
 

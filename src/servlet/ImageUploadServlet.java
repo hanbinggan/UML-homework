@@ -3,6 +3,8 @@ package servlet;
 import dao.Draw;
 import dao.DrawDao;
 import dao.DrawDaoImpl;
+import util.DbUtils;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +31,7 @@ public class ImageUploadServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         String id=request.getSession().getAttribute("email").toString();
-        String path="E:\\IdeaProjects\\hello\\web\\resource\\"+id;
+        String path= DbUtils.getPath()+'\\'+id;
         System.out.println(path);
         File file=new File(path);
 

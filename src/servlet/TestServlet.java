@@ -2,6 +2,8 @@ package servlet;
 
 //import sun.nio.ch.IOUtil;
 
+import util.DbUtils;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +40,7 @@ public class TestServlet extends HttpServlet {
         String id=request.getSession().getAttribute("id").toString();
 //        Collection<Part>parts=request.getParts();
 //        String path="E:\\IdeaProjects\\hello\\out\\artifacts\\hello_war_exploded\\"+id;
-        String path="E:\\IdeaProjects\\hello\\web\\resource\\"+id;
+        String path= DbUtils.getPath()+'\\'+id;
         System.out.println(path);
         File file=new File(path);
         if(!file.exists()){

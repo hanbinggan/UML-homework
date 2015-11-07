@@ -5,6 +5,7 @@
 <%@ page import="dao.DrawDaoImpl" %>
 <%@ page import="dao.DrawDao" %>
 <%@ page import="java.util.List" %>
+<%@ page import="util.DbUtils" %>
 <%--
   Created by IntelliJ IDEA.
   User: hello
@@ -54,7 +55,7 @@
   </style>
   <script type="text/javascript">
     function showImage(email,name){
-      var path1="E:\\IdeaProjects\\hello\\web\\resource";
+      var path1=DbUtils.getPath();
       var str=path1+"\\"+email+"\\"+name;
       var content3= "<img src='<%=basePath%>servlet/DisplayServlet?path="+str+"' alt=''/>";
       TINY.box.show(content3,0,0,0,0,1);
@@ -89,7 +90,7 @@
           }
           List<Draw> lists = drawDao.searchByEmail(idd);
           String lastName = "";
-          String filepath = "E:\\IdeaProjects\\hello\\web\\resource";
+          String filepath = DbUtils.getPath();
           for (Draw draw : lists) {
             String imgpath = String.format("%s\\%s\\%s", filepath, draw.getEmail(), draw.getName());
             String date = new SimpleDateFormat("yyyy-MM-dd").format(draw.getTime());

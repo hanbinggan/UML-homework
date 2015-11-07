@@ -1,6 +1,7 @@
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="util.DbUtils" %>
 <%--
   Created by IntelliJ IDEA.
   User: hello
@@ -81,7 +82,7 @@
           <form method="post" action="<%=basePath%>servlet/ImgDeleteServlet">
             <%
               String idd=session.getAttribute("email").toString();
-              String filepath="E:\\IdeaProjects\\hello\\web\\resource\\"+idd;
+              String filepath= DbUtils.getPath()+'\\'+idd;
               File folder=new File(filepath);
               File []files=folder.listFiles();
               int cnt=1;

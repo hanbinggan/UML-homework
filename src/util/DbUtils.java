@@ -11,7 +11,10 @@ import java.util.List;
 public class DbUtils {
     private static Connection conn=null;
     private static int everyPage = 10;
-
+    private static String path="E:\\IdeaProjects\\benMoe\\resource";
+    public static String getPath(){
+        return path;
+    }
     //定义存储分页的list集合
     public static int getEveryPage() {
         return everyPage;
@@ -23,7 +26,7 @@ public class DbUtils {
     public static Connection getConnection() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://192.168.1.6:1433;DatabaseName=benMoe";
+            String url="jdbc:sqlserver://192.168.1.5:1433;DatabaseName=benMoe";
 //            String url="jdbc:sqlserver://172.19.70.147:1433;DatabaseName=benMoe";
             String name="sa";
             String password="h1210975300";

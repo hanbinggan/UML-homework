@@ -6,9 +6,9 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="benMoe" />
-          <element id="directory" name="lib">
-            <element id="library" level="application" name="sqljdbc4" />
-          </element>
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="D:/Program Files/Java/Microsoft JDBC Driver 4.0 for SQL Server/sqljdbc_4.0/chs/sqljdbc4.jar" />
         </element>
       </element>
     </root>

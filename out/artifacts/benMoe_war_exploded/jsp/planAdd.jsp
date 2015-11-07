@@ -33,18 +33,27 @@
         <article>拯救吃土画手！策划在行动！</article>
       </div>
     </div>
-    <div id="features-wrapper">
-      <div class="container">
+    <div class="container">
+      <div class="row 200%">
+        <div class="20u 20u$(medium)">
+        </div>
             <form name="planAdd" method="post"  action="../servlet/planAddServlet">
-                你的ID<input type="text" name="plannerid" >
-                本子名称<input type="text"name="name">
-                标签<input type="text" name="tag">
-                描述<input type="text"name="intro"><br>
-                <input type="submit" name="submit" align="right">
+              <input type="hidden" name="plannerid" value="<%=(String)request.getSession().getAttribute("email")%>">
+
+              <div><label>本子名称</label><input type="text"name="name" style="width: 500px;"></div>
+              <div><label>标签</label><input type="text" name="tag"></div>
+              <div>
+                <label>描叙</label>
+                <textarea name="intro"></textarea>
+              </div>
+
+              <%--<div><label>描述<input type="text"name="intro"><br></label></div>--%>
+              <br>
+              <input type="submit" name="submit" align="right">
             </form>
       </div>
+      </div>
     </div>
-  </div>
 </div>
 
 <!-- Scripts -->

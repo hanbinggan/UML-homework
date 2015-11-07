@@ -5,7 +5,6 @@
   Time: 9:47
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="dao.Draw" %>
 <%@ page import="java.util.List" %>
@@ -41,7 +40,7 @@
   <script src="<%=basePath%>js/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <script type="text/javascript" src="<%=basePath%>js/tinybox.js"></script>
-  <link rel="stylesheet" href="<%=basePath%>js/style.css" />
+  <link rel="stylesheet" href="<%=basePath%>js/style.css"/>
 
   <!--[if lte IE 8]>
   <script src="<%=basePath%>js/ie/html5shiv.js"></script><![endif]-->
@@ -61,18 +60,18 @@
     }
   </style>
   <script type="text/javascript">
-    function showImage(email,name){
-      var path1="E:\\IdeaProjects\\hello\\web\\resource";
-      var str=path1+"\\"+email+"\\"+name;
-      var content3= "<img src='<%=basePath%>servlet/DisplayServlet?path="+str+"' alt=''/>";
-      TINY.box.show(content3,0,0,0,0,1);
+    function showImage(email, name) {
+      var path1 = "<%=DbUtils.getPath()%>";
+      var str = path1 + "\\" + email + "\\" + name;
+      var content3 = "<img src='<%=basePath%>servlet/DisplayServlet?path=" + str + "' alt=''/>";
+      TINY.box.show(content3, 0, 0, 0, 0, 1);
     }
   </script>
 </head>
 <!-- Header -->
 <%@include file="header.jsp" %>
 <body class="homepage">
-  <div id="header-wrapper">
+<div id="header-wrapper">
   <header id="header" class="container">
 
     <!-- Logo -->
@@ -82,7 +81,7 @@
   </header>
 </div>
 
-  <div id="page-wrapper">
+<div id="page-wrapper">
   <!-- Main -->
   <div id="features-wrapper">
     <div class="container">
@@ -99,7 +98,7 @@
 //                System.out.println(DbUtils.getDraws());
 //              List<Draw> lists= DbUtils.getDraws();
           String lastName = "";
-          String filepath = "E:\\IdeaProjects\\hello\\web\\resource";
+          String filepath = DbUtils.getPath();
           for (Draw draw : lists) {
             String imgpath = String.format("%s\\%s\\%s", filepath, draw.getEmail(), draw.getName());
             String date = new SimpleDateFormat("yyyy-MM-dd").format(draw.getTime());
@@ -111,13 +110,14 @@
 //              System.out.println(date + last);
 
             if (!lastName.equals(draw.getEmail())) {%>
-             <div class="4u 12u(medium)">
+        <div class="4u 12u(medium)">
           <!-- Box -->
           <section class="box feature">
 
             <div class="inner">
               <header>
-                <h2><b><%=date%></b></h2>
+                <h2><b><%=date%>
+                </b></h2>
               </header>
               <p><a href="<%=basePath%>jsp/imageLibrary.jsp?email=<%=draw.getEmail()%>"><%=draw.getEmail()%>
               </a></p>
@@ -127,13 +127,15 @@
           </section>
 
         </div>
-           <%
-            lastName = draw.getEmail();}%>
-         <div class="4u 12u(medium)">
+        <%
+            lastName = draw.getEmail();
+          }%>
+        <div class="4u 12u(medium)">
 
           <!-- Box -->
           <section class="box feature">
-            <a href="#" class="image featured" onclick="showImage('<%=draw.getEmail()%>','<%=draw.getName()%>')" id="show">
+            <a href="#" class="image featured" onclick="showImage('<%=draw.getEmail()%>','<%=draw.getName()%>')"
+               id="show">
               <img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/></a>
 
             <div class="inner">

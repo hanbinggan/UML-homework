@@ -34,19 +34,6 @@
 <body class="left-sidebar">
 <div id="page-wrapper">
 
-  <!-- Header -->
-  <div id="header-wrapper">
-    <header id="header" class="container">
-
-      <!-- Logo -->
-      <div id="logo">
-        <h1><a href="index.jsp">BenMoe</a></h1>
-        <span>本萌，一个有爱的约稿出本家园(●'◡'●)</span>
-      </div>
-
-      <!-- Nav -->
-    </header>
-  </div>
 
   <!-- Main -->
   <div id="main-wrapper">
@@ -84,9 +71,6 @@
   </div>
 </div>
 </div>
-
-
-<!-- Footer -->
 
 </div>
 

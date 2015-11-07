@@ -37,7 +37,7 @@ public class planAddServlet extends HttpServlet {
         planDao.planAdd(planEntity);
         //response.sendRedirect("planReadServlet");
         request.setAttribute("planid",planEntity.getId());
-       response.sendRedirect("../planRead.jsp?planid=" + planEntity.getId());
+       response.sendRedirect("../jsp/planRead.jsp?planid=" + planEntity.getId());
 
     }
 
