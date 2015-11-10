@@ -26,16 +26,15 @@ public class PlanMudifyServlet extends HttpServlet {
 
         PlanEntity planEntity = new PlanEntity();
         Date dt=new Date(System.currentTimeMillis());//如果不需要格式,可直接用dt,dt就是当前系统时间
-        DateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置显示格式
         // Timestamp timestamp = System.currentTimeMillis();
-        planEntity.setId(df.format(dt));//用DateFormat的format()方法在dt中获取并以yyyy/MM/dd HH:mm:ss格式显示
+        planEntity.setId(request.getParameter("id"));//用DateFormat的format()方法在dt中获取并以yyyy/MM/dd HH:mm:ss格式显示
         planEntity.setPlannerid(request.getParameter("plannerid"));
         planEntity.setName(request.getParameter("name"));
         planEntity.setIntro(request.getParameter("intro"));
         planEntity.setTag(request.getParameter("tag"));
         planEntity.setBgdate(dt);
         PlanDao planDao = new PlanDaoImpl();
-        planDao.planAdd(planEntity);
+        planDao.planMudify(planEntity);
         //response.sendRedirect("planReadServlet");
         request.setAttribute("planid",planEntity.getId());
         response.sendRedirect("../jsp/planRead.jsp?planid=" + planEntity.getId());

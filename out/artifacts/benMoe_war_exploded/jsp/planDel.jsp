@@ -64,7 +64,7 @@
           </thead>
           <tbody>
           <% PlanDao planDao = new PlanDaoImpl();
-            List<PlanEntity> planEntityList = planDao.planShow();
+            List<PlanEntity> planEntityList = planDao.quercy((String)request.getSession().getAttribute("email"));
             for(PlanEntity planEntity:planEntityList)
             {
           %>
@@ -77,7 +77,7 @@
             </td>
             <td align="center"><%=planEntity.getTag()%></td>
             <td align="center"><%=planEntity.getBgdate()%></td>
-            <td abbr="center">
+            <td abbr="right">
               <a href="<%=basePath%>servlet/PlanDelServlet?planid=<%=planEntity.getId()%>">删除</a> </td>
           </tr>
           <%  }

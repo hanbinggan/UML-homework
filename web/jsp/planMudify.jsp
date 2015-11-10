@@ -58,7 +58,7 @@
           </div>
           <div>
             <label>本子编号</label>
-            <input type="text" name="plannerid" value="<%=planEntity.getId()%>" readonly/>
+            <input type="text" name="id" value="<%=planEntity.getId()%>" readonly/>
           </div>
           <div>
             <label>本子名称</label>

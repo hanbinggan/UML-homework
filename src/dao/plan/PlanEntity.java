@@ -13,6 +13,18 @@ public class PlanEntity {
     private String tag;
     private String intro;
 
+    @Override
+    public String toString() {
+        return "PlanEntity{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", plannerid='" + plannerid + '\'' +
+                ", bgdate=" + bgdate +
+                ", tag='" + tag + '\'' +
+                ", intro='" + intro + '\'' +
+                '}';
+    }
+
     public String getId() {
         return id;
     }

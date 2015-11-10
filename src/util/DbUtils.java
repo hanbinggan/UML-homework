@@ -26,8 +26,8 @@ public class DbUtils {
     public static Connection getConnection() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://192.168.1.5:1433;DatabaseName=benMoe";
-//            String url="jdbc:sqlserver://172.19.70.147:1433;DatabaseName=benMoe";
+//            String url="jdbc:sqlserver://192.168.1.9:1433;DatabaseName=benMoe";
+            String url="jdbc:sqlserver://172.19.26.161:1433;DatabaseName=benMoe";
             String name="sa";
             String password="h1210975300";
             conn= DriverManager.getConnection(url,name,password);

@@ -58,6 +58,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
               <li><a href="<%=basePath%>jsp/imageLibrary.jsp">个人作品</a></li>
               <li><a href="<%=basePath%>jsp/uploadImage.jsp">发表作品</a></li>
               <li><a href="<%=basePath%>jsp/imageDel.jsp">修改作品</a></li>
+              <li><a href="<%=basePath%>jsp/myJoin.jsp">参加的本子</a></li>
               <%
                 }else if("planner".equals(id)){%>
               <li><a href="<%=basePath%>jsp/planAdd.jsp">发表策划</a></li>

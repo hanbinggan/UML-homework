@@ -157,12 +157,13 @@ public class PlanDaoImpl implements PlanDao {
     public void planMudify(PlanEntity planEntity) {
         Connection conn=null;
         PreparedStatement pstmt=null;
+        System.out.println(planEntity);
         try {
             conn= DbUtils.getConnection();
-            String sql="UPDATE plans SET name=?,bgdate=?,tag=?,intro=?where id=?";
+            String sql="UPDATE plans SET name=?,bgdate=?,tag=?,intro=? where id=?";
             pstmt=conn.prepareStatement(sql);
-            pstmt.setString(1,planEntity.getName());
-            pstmt.setDate(2,planEntity.getBgdate());
+            pstmt.setString(1, planEntity.getName());
+            pstmt.setDate(2, planEntity.getBgdate());
             pstmt.setString(3, planEntity.getTag());
             pstmt.setString(4, planEntity.getIntro());
             pstmt.setString(5, planEntity.getId());

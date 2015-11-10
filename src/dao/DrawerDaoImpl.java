@@ -123,4 +123,37 @@ public class DrawerDaoImpl implements DrawerDao {
             DbUtils.closeConnection();
         }
     }
+
+    @Override
+    public List<DrawerProjects> getPlanState(String id, int state) {
+        List<DrawerProjects>list=null;
+        Connection conn=null;
+        PreparedStatement pst=null;
+        ResultSet rs=null;
+        System.out.println(id+state);
+        try{
+            conn=DbUtils.getConnection();
+            String sql="select * from drawerApplication where state=? and drawerID=?";
+            pst=conn.prepareStatement(sql);
+            pst.setInt(1,state);
+            pst.setString(2,id);
+            rs=pst.executeQuery();
+            list=new ArrayList<DrawerProjects>();
+            while (rs.next()){
+                DrawerProjects dr=new DrawerProjects();
+                dr.setDrawerID(rs.getString("drawerID"));
+                dr.setArticleID(rs.getString("articleID"));
+                dr.setState(state);
+                dr.setTime(rs.getDate("time"));
+                list.add(dr);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            DbUtils.closeResultSet(rs);
+            DbUtils.closePreparedStatement(pst);
+            DbUtils.closeConnection();
+        }
+        return list;
+    }
 }
