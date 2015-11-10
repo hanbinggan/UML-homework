@@ -46,7 +46,15 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
       <!-- Nav -->
       <nav id="nav">
         <ul>
-          <li><a href="index.html">我的首页</a></li>
+          <%
+            if("drawer".equals(id)){
+          %>
+          <li><a href="<%=basePath%>jsp/imageLibrary.jsp">我的首页</a></li>
+          <%
+          }else if("planner".equals(id)){%>
+          <li><a href="<%=basePath%>jsp/myPlan.jsp">我的首页</a> </li>
+          <% }
+          %>
           <li><a href="<%=basePath%>jsp/planShow.jsp">出本求参区</a></li>
           <li><a href="<%=basePath%>jsp/library.jsp">吃土求救区</a></li>
           <li><a href="<%=basePath%>jsp/info.jsp">个人账户</a>
