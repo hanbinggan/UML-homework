@@ -60,9 +60,7 @@
     }
   </style>
   <script type="text/javascript">
-    function showImage(email, name) {
-      var path1 = "<%=DbUtils.getPath()%>";
-      var str = path1 + "\\" + email + "\\" + name;
+    function showImage(str) {
       var content3 = "<img src='<%=basePath%>servlet/DisplayServlet?path=" + str + "' alt=''/>";
       TINY.box.show(content3, 0, 0, 0, 0, 1);
     }
@@ -122,48 +120,37 @@
               <p><a href="<%=basePath%>jsp/imageLibrary.jsp?email=<%=draw.getEmail()%>"><%=draw.getEmail()%>
               </a></p>
             </div>
-            <script>
-              alert('<%=imgpath%>');
-            </script>
-            <a href="<%=basePath%>jsp/imageLibrary.jsp?email=<%=draw.getEmail()%>" class="image featured">
-              <img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/></a>
+            <a href="#" class="image featured"
+               onclick="showImage('<%=imgpath.replace("\\","\\\\")%>')">
+              <img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/>
+            </a>
           </section>
 
         </div>
         <%
             lastName = draw.getEmail();
           }%>
-        <div class="4u 12u(medium)">
+        <%--<div class="4u 12u(medium)">--%>
 
-          <!-- Box -->
-          <section class="box feature">
-            <a href="#" class="image featured" onclick="showImage('<%=draw.getEmail()%>','<%=draw.getName()%>')"
-               id="show">
-              <img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/></a>
+          <%--<!-- Box -->--%>
+          <%--<section class="box feature">--%>
+            <%--<a href="#" class="image featured" onclick="showImage('<%=imgpath.replace("\\","\\\\")%>')"--%>
+               <%--id="show">--%>
+              <%--<img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/></a>--%>
 
-            <div class="inner">
-              <header>
-                <h2>An interesting title</h2>
+            <%--<div class="inner">--%>
+              <%--<header>--%>
+                <%--<h2>An interesting title</h2>--%>
 
-                <p>This is also an interesting subtitle</p>
-              </header>
-              <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum
-                tristique fringilla.</p>
-            </div>
-          </section>
+                <%--<p>This is also an interesting subtitle</p>--%>
+              <%--</header>--%>
+              <%--<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum--%>
+                <%--tristique fringilla.</p>--%>
+            <%--</div>--%>
+          <%--</section>--%>
 
-        </div>
-        <%--<img src="<%=basePath%>html/tmp/picCreate.jsp?path=<%=imgpath1%>">--%>
-        <%--<img src="<%=imgpath%>">--%>
-        <%--<span class="img" id="<%=photoPath%>">--%>
-        <%--<img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" style="height: 200px;width: 200px"/>--%>
-        <%--</span>--%>
-        <%--<br>--%>
-        <%--<input type="button" value="X" class="button1" onclick="test(<%=imgpath1%>);"/>--%>
-        <%--<input type="button" value="X" class="button1" onclick=window.open()/>--%>
+        <%--</div>--%>
         <%}%>
-        <%--</form>--%>
-
       </div>
     </div>
   </div>

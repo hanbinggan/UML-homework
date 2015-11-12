@@ -54,11 +54,9 @@
     }
   </style>
   <script type="text/javascript">
-    function showImage(email,name){
-      var path1=DbUtils.getPath();
-      var str=path1+"\\"+email+"\\"+name;
-      var content3= "<img src='<%=basePath%>servlet/DisplayServlet?path="+str+"' alt=''/>";
-      TINY.box.show(content3,0,0,0,0,1);
+    function showImage(str) {
+      var content3 = "<img src='<%=basePath%>servlet/DisplayServlet?path=" + str + "' alt=''/>";
+      TINY.box.show(content3, 0, 0, 0, 0, 1);
     }
   </script>
 </head>
@@ -110,11 +108,11 @@
               <header>
                 <h2><b><%=date%></b></h2>
               </header>
-              <p><a href="<%=basePath%>jsp/imageLibrary.jsp?email=<%=draw.getEmail()%>"><%=draw.getEmail()%>
-              </a></p>
             </div>
-            <a href="<%=basePath%>jsp/imageLibrary.jsp?email=<%=draw.getEmail()%>" class="image featured">
-              <img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/></a>
+            <a href="#" class="image featured"
+               onclick="showImage('<%=imgpath.replace("\\","\\\\")%>')">
+              <img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/>
+            </a>
           </section>
 
         </div>
@@ -124,7 +122,7 @@
 
           <!-- Box -->
           <section class="box feature">
-            <a href="#" class="image featured" onclick="showImage('<%=draw.getEmail()%>','<%=draw.getName()%>')" id="show">
+            <a href="#" class="image featured" onclick="showImage('<%=imgpath.replace("\\","\\\\")%>')" id="show">
               <img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" alt=""/></a>
 
             <div class="inner">
@@ -139,17 +137,7 @@
           </section>
 
         </div>
-        <%--<img src="<%=basePath%>html/tmp/picCreate.jsp?path=<%=imgpath1%>">--%>
-        <%--<img src="<%=imgpath%>">--%>
-        <%--<span class="img" id="<%=photoPath%>">--%>
-        <%--<img src="<%=basePath%>servlet/DisplayServlet?path=<%=imgpath%>" style="height: 200px;width: 200px"/>--%>
-        <%--</span>--%>
-        <%--<br>--%>
-        <%--<input type="button" value="X" class="button1" onclick="test(<%=imgpath1%>);"/>--%>
-        <%--<input type="button" value="X" class="button1" onclick=window.open()/>--%>
         <%}%>
-        <%--</form>--%>
-
       </div>
     </div>
   </div>

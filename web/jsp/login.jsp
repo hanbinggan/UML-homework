@@ -12,7 +12,10 @@
   response.setContentType("text/html");
   response.setCharacterEncoding("utf-8");
   request.setCharacterEncoding("utf-8");
-  System.out.println(basePath);
+  if(request.getSession().getAttribute("email") != null){
+    request.getSession().removeAttribute("email");
+    request.getSession().removeAttribute("id");
+  }
   //Calendar cal = Calendar.getInstance();
 %>
 <!DOCTYPE HTML>
