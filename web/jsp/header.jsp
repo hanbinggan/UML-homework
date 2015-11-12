@@ -23,7 +23,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 -->
 <html>
 <head>
-  <title>Verti by HTML5 UP</title>
+  <title>BenMoe</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--[if lte IE 8]><script src="<%=basePath%>js/ie/html5shiv.js"></script><![endif]-->
@@ -39,8 +39,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
       <!-- Logo -->
       <div id="logo">
-        <h1><a href="index.html">本萌</a></h1>
-        <span>这是一个有爱的约稿出本家园(●'◡'●)</span>
+        <h1><a href="<%=basePath%>index.jsp">BenMoe</a></h1>
+        <span >本萌，一个有爱的约稿出本家园(●'◡'●)</span>
       </div>
 
       <!-- Nav -->

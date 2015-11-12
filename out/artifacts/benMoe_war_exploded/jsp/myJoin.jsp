@@ -77,7 +77,7 @@
           <tr>
             <td align="center"><%=planEntity.getPlannerid()%></td>
             <td align="center">
-              <a href="<%=basePath%>jsp/planReadsp?planid=<%=planEntity.getId()%>">
+              <a href="<%=basePath%>jsp/planRead.jsp?planid=<%=planEntity.getId()%>">
                 <%=planEntity.getName()%>
               </a>
             </td>
@@ -112,7 +112,7 @@
           <tr>
             <td align="center"><%=planEntity.getPlannerid()%></td>
             <td align="center">
-              <a href="<%=basePath%>jsp/planReadsp?planid=<%=planEntity.getId()%>">
+              <a href="<%=basePath%>jsp/planRead.jsp?planid=<%=planEntity.getId()%>">
                 <%=planEntity.getName()%>
               </a>
             </td>

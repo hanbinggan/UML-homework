@@ -117,7 +117,9 @@
 
         </div>
         <%
-            lastName = draw.getEmail();}%>
+            lastName = draw.getEmail();
+            continue;
+          }%>
         <div class="4u 12u(medium)">
 
           <!-- Box -->
