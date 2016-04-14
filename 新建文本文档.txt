@@ -1,0 +1,2 @@
+原因还是spring中hibernate.current_session_context_class的问题
+在spring的类LocalSessionFactoryBean源码，方法buildSessionFactory中将hibernate.current_session_context_class设为org.springframework.orm.hibernate3.SpringSessionContext
